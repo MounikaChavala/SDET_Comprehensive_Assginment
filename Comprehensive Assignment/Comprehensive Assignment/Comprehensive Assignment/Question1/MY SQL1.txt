@@ -1,0 +1,82 @@
+Enter password: *********
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 9
+Server version: 8.0.30 MySQL Community Server - GPL
+
+Copyright (c) 2000, 2022, Oracle and/or its affiliates.
+
+Oracle is a registered trademark of Oracle Corporation and/or its
+affiliates. Other names may be trademarks of their respective
+owners.
+
+Type 'help;' or '\h' for help. Type '\c' to clear the current input statement.
+
+mysql> use sai
+Database changed
+mysql> select* from Emp_Data;
+ERROR 1146 (42S02): Table 'sai.emp_data' doesn't exist
+mysql> use anil
+Database changed
+mysql> select* from Emp_Data;
++-------+--------------+--------+----------------+-----------+
+| EmpNo | EMPName      | EMPExp | EMPDepartment  | EMPSalary |
++-------+--------------+--------+----------------+-----------+
+|     1 | anil         |      2 | Testing        |     10000 |
+|     2 | sai          |      2 | java           |     20000 |
+|     3 | rajesh       |      3 | SAP            |     30000 |
+|     4 | sai          |      6 | java           |     10000 |
+|     5 | Rajesh       |      5 | projectmanager |     60000 |
+|     6 | LakshmiDurga |      1 | QA             |     70000 |
+|     7 | rajesh       |     10 | Webdevelopment |     80000 |
+|     8 | gopi         |     13 | development    |     90000 |
+|     9 | sai          |      6 | development    |     20000 |
+|    10 | bharth       |      7 | Qc             |    110000 |
+|     2 | sai          |      2 | java           |     10000 |
++-------+--------------+--------+----------------+-----------+
+11 rows in set (0.07 sec)
+
+mysql>
+mysql>
+mysql>
+mysql> select* from Emp_Data where EMPDepartment'development';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''development'' at line 1
+mysql> select* from Emp_Data where EMPDepartment='development';
++-------+---------+--------+---------------+-----------+
+| EmpNo | EMPName | EMPExp | EMPDepartment | EMPSalary |
++-------+---------+--------+---------------+-----------+
+|     8 | gopi    |     13 | development   |     90000 |
+|     9 | sai     |      6 | development   |     20000 |
++-------+---------+--------+---------------+-----------+
+2 rows in set (0.01 sec)
+
+mysql> select* from Emp_Data where EMPDepartment'java';
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ''java'' at line 1
+mysql> select* from Emp_Data where EMPDepartment='java';
++-------+---------+--------+---------------+-----------+
+| EmpNo | EMPName | EMPExp | EMPDepartment | EMPSalary |
++-------+---------+--------+---------------+-----------+
+|     2 | sai     |      2 | java          |     20000 |
+|     4 | sai     |      6 | java          |     10000 |
+|     2 | sai     |      2 | java          |     10000 |
++-------+---------+--------+---------------+-----------+
+3 rows in set (0.00 sec)
+
+mysql> select* from Emp_Data;
++-------+--------------+--------+----------------+-----------+
+| EmpNo | EMPName      | EMPExp | EMPDepartment  | EMPSalary |
++-------+--------------+--------+----------------+-----------+
+|     1 | anil         |      2 | Testing        |     10000 |
+|     2 | sai          |      2 | java           |     20000 |
+|     3 | rajesh       |      3 | SAP            |     30000 |
+|     4 | sai          |      6 | java           |     10000 |
+|     5 | Rajesh       |      5 | projectmanager |     60000 |
+|     6 | LakshmiDurga |      1 | QA             |     70000 |
+|     7 | rajesh       |     10 | Webdevelopment |     80000 |
+|     8 | gopi         |     13 | development    |     90000 |
+|     9 | sai          |      6 | development    |     20000 |
+|    10 | bharth       |      7 | Qc             |    110000 |
+|     2 | sai          |      2 | java           |     10000 |
++-------+--------------+--------+----------------+-----------+
+11 rows in set (0.00 sec)
+
+mysql>
